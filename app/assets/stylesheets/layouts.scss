@@ -1,0 +1,15 @@
+#top_image{
+  //背景画像を指定
+  background-image: url(/images/sea.jpg);
+  //繰り返さない
+  background-repeat: no-repeat;
+  //縦横比は保持して、背景領域を完全に覆う最小サイズになるように背景画像を拡大縮小する
+  background-size: cover;
+  background-position: center top;
+  //背景固定
+  background-attachment: fixed;
+  //高さは100%
+  height: 100vh;
+  width: 100vw;
+}
+

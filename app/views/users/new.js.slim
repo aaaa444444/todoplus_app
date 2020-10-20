@@ -1,0 +1,17 @@
+tr
+  th = label :user, :user_file
+  td
+    #user_file_uploader.dropzone                  / ポイント
+    table.files
+      - for file in @user.attachment_files do
+        tr id="file_row_#{file.id}"
+          td
+            = file.original_filename
+            = hidden_field_tag nil, file.id, name:'user[attachment_file_ids][]'
+          td
+            = link_to file.file_url, download: file.original_filename do
+              = fa_icon "download"
+              |ダウンロード
+          td
+            = link_to '#', onclick: "#", file_id: file.id, remote: true do
+              |削除
