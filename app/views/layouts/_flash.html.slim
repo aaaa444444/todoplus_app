@@ -1,0 +1,8 @@
+- flash.each do |key, value|
+  .fixed-top.mt-5.container
+    |  <div class="alert 
+    = bs4_bgcolor_for(key)
+    |  alert-dismissable fade show my-3"> 
+    = value
+    button.close[data-dismiss="alert"]
+      | x

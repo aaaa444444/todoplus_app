@@ -1,0 +1,28 @@
+#tagModal.modal.fade[tabindex="-1" role="dialog" aria-labelledby="tagModalLabel"]
+  .modal-dialog[role="document"]
+    .modal-content
+      = form_with(model: tag, remote: true) do |form|
+        .modal-header
+          h5#tagModal.modal-title
+            = "#{params[:action].camelize} #{tag.model_name.human}"
+          button.close[type="button" data-dismiss="modal" aria-label="閉じる"]
+            span[aria-hidden="true"]
+              | ×
+        .modal-body
+          - if tag.errors.any?
+            #error_explanation
+              h2
+                = pluralize(tag.errors.count, "error")
+                |  prohibited this tag from being saved:
+              ul
+                - tag.errors.full_messages.each do |message|
+                  li
+                    = message
+          .field
+            = form.label :name
+            = form.text_field :name
+        .modal-footer.actions
+          = link_to new_tag_path, remote: true do
+            button.btn.btn-secondary[type="button" data-dismiss="modal"]
+              | Close
+          = form.submit

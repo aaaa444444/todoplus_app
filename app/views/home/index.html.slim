@@ -1,0 +1,101 @@
+.container.mt-5.py-5
+  .row.mt-5
+    .col-md-6
+
+    .col-md-6.px-5
+      p.name
+        - 
+          | 川内　聖史
+          rt
+            | かわうち　さとし
+      p.title
+        | 住所
+      p
+        | 福岡県福岡市在住
+      p.title
+        | 年齢
+      p
+        | 21歳
+      p.title
+        | GitHub Account
+      p
+        | edisnirevir2963@gmail.com
+.container
+  ul.nav.nav-tabs
+    li.nav-item
+      a.nav-link.active[href="#study" data-toggle="tab"]
+        | 学習状況
+    li.nav-item
+      a.nav-link[href="#career" data-toggle="tab"]
+        | 経歴
+    li.nav-item
+      a.nav-link[href="#qualification" data-toggle="tab"]
+        | 資格
+    li.nav-item
+      a.nav-link[href="#self_pr" data-toggle="tab"]
+        | 自己PR
+  .tab-content.py-4
+    #study.tab-pane.active
+      table.table.table-striped.container
+        thead
+          tr.row
+            th.col-md-2[scope="col"]
+              | 学習テーマ
+            th.col-md-10[scope="col"]
+              | 学習状況
+        tbody
+          tr.row
+            th.col-md-2[scope="row"]
+              | HTML,CSS
+            td.col-md-10
+              p
+                | chromのDevToolを利用してデザインの微調整が出来る。
+              p
+                | id や classを付与して目的のスタイルを充てることができる。
+          tr.row
+            th.col-md-2[scope="row"]
+              | Ruby
+            td.col-md-10
+              | Rubyで書かれたソースを読むことができる。オブジェクト指向び概要理解。
+          tr.row
+            th.col-md-2[scope="row"]
+              | Rails
+            td.col-md-10
+              | WEBアプリを作る上において基本的な流れを理解しました。
+              p
+                | マイグレーション、ルーティング、パーシャル、関数の自作、モデルのリレーション等
+          tr.row
+            th.col-md-2[scope="row"]
+              | git
+            td.col-md-10
+              p
+                | gitのコマンドの基礎知識。add,commit,push , status, logの確認
+          tr.row
+            th.col-md-2[scope="row"]
+              | JavaScript
+            td.col-md-10
+              p
+                | DOM操作,jQqueryの機能をを調査して実装できます。
+          tr.row
+            th.col-md-2[scope="row"]
+              | その他
+            td.col-md-10
+              p
+    #career.tab-pane
+
+    #qualification.tab-pane
+      p
+        | FP3級
+      p
+        | 普通自動車運転免許
+      p
+        | MOS（Excel2016）
+      p
+        | MOS(Excel2016 Expert)
+      p
+        | MOS(PowerPoint 2016)
+    #self_pr.tab-pane
+      p
+        | コロナ期間の自粛を期にプログラミングの需要に気付き、オンラインスクールに通い始めました。Railsとそれに伴う環境について勉強しました。
+      p
+        | 現在も、自分で簡単なWEBアプリを作っています。

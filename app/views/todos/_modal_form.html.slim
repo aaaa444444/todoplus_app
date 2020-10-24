@@ -1,0 +1,34 @@
+#goalModal.modal.fade[tabindex="-1" role="dialog" aria-labelledby="goalModalLabel"]
+  .modal-dialog[role="document"]
+    .modal-content
+      = form_with(model: todo, url: [goal, todo], remote: true, class: "") do |form|
+        .modal-header
+          h5#goalModal.modal-title
+            = "#{params[:action].camelize} #{todo.model_name.human}"
+          button.close[type="button" data-dismiss="modal" aria-label="閉じる"]
+            span[aria-hidden="true"]
+              | ×
+        .modal-body
+          - if todo.errors.any?
+            #error_explanation
+              h2
+                = pluralize(todo.errors.count, "error")
+                |  prohibited this todo from being saved:
+              ul
+                - todo.errors.full_messages.each do |message|
+                  li
+                    = message
+          .field
+            = form.label :content
+            = form.text_area :content, rows: 5
+          .field
+            = form.collection_check_boxes :tag_ids, current_user.tags, :id, :name do |b|
+              = b.label(class: "form-check") do
+                = b.check_box(class: "form-check-input")
+                .btn.btn-secondary
+                  = b.text
+            |  　
+        .modal-footer.actions
+          button.btn.btn-secondary[type="button" data-dismiss="modal"]
+            | Close
+          = form.submit

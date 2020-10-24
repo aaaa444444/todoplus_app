@@ -1,0 +1,18 @@
+doctype html
+html
+  head
+    meta[name="viewport" content]
+    title
+      | Todo_plus
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+  body
+    = render "layouts/header"
+    = render "layouts/flash"
+    #modalArea
+    main
+      .container-fruid.h-100.p-2.d-flex.flex-columm
+        = yield
+    = render "layouts/footer"

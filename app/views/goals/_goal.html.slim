@@ -1,0 +1,20 @@
+| <div class="card bg-light d-inline-block text-wrap h-100 mx-1 goal-card" data-model_name="
+= Goal.model_name.singular
+| " data-id="
+= goal.id
+| "> 
+.d-flex.flex-column.h-100[style="width: 25rem; min-width: 25rem;"]
+  .font-weight-bold.px-4.py-2.goal-header
+    .pr-5
+      = goal.title
+    .text-right.position-absolute[style="top: 4px; right: 4px"]
+      = link_to(new_goal_todo_path(goal), title: "New TODO", class: "btn px-0", remote: true) do
+        i.fas.fa-plus.align-middle
+      .btn-group
+        button.btn[type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"]
+          i.fas.fa-ellipsis-v.align-middle
+        .dropdown-menu.dropdown-menu-right.text-middle
+          = link_to "Edit", edit_goal_path(goal), class: "dropdown-item", remote: true
+          = link_to "Delete", goal, method: :delete, class: "dropdown-item text-danger", remote: true, data: { confirm: 'Are you sure?' }
+  .card-body.px-2.pb-2.pt-0.overflow-auto.todo-cards
+    = render partial: "todos/todo", collection: goal.todos, as: :todo

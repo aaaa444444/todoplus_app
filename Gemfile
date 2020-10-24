@@ -75,4 +75,5 @@ gem 'acts_as_list', '~> 0.9.19'
 gem 'carrierwave'
 
 #slim 
-gem 'slim-rails'
+gem 'slim-rails'  
+gem 'html2slim'

@@ -1,0 +1,27 @@
+#goalModal.modal.fade[tabindex="-1" role="dialog" aria-labelledby="goalModalLabel"]
+  .modal-dialog[role="document"]
+    .modal-content
+      = form_with(model: goal, remote: true) do |form|
+        .modal-header
+          h5#goalModal.modal-title
+            = "#{params[:action].camelize} #{goal.model_name.human}"
+          button.close[type="button" data-dismiss="modal" aria-label="閉じる"]
+            span[aria-hidden="true"]
+              | ×
+        .modal-body
+          - if goal.errors.any?
+            #error_explanation
+              h2
+                = pluralize(goal.errors.count, "error")
+                |  prohibited this goal from being saved:
+              ul
+                - goal.errors.full_messages.each do |message|
+                  li
+                    = message
+          .field
+            = form.label :title
+            = form.text_field :title
+        .modal-footer.actions
+          button.btn.btn-secondary[type="button" data-dismiss="modal"]
+            | Close
+          = form.submit

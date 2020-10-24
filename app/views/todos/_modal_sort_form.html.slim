@@ -1,0 +1,38 @@
+#goalModal.modal.fade[tabindex="-1" role="dialog" aria-labelledby="goalModalLabel"]
+  .modal-dialog[role="document"]
+    .modal-content
+      = form_with(model: todo, url: [goal, todo], remote: true, class: "") do |form|
+        .modal-header
+          h5#goalModal.modal-title
+            | 並びかえ
+          button.close[type="button" data-dismiss="modal" aria-label="閉じる"]
+            span[aria-hidden="true"]
+              | ×
+        .modal-body
+          - if todo.errors.any?
+            #error_explanation
+              h2
+                = pluralize(todo.errors.count, "error")
+                |  prohibited this todo from being saved:
+              ul
+                - todo.errors.full_messages.each do |message|
+                  li
+                    = message
+          .card.my-2
+            .card-body
+              .card-text
+                = todo.done ? tag.del(){simple_format todo.content} : (simple_format todo.content)
+              .card-text
+                small.text-muted
+                  = l(todo.created_at, format: :short) if todo.created_at.present?
+          .field
+            = form.label :position, class: "d-none"
+            = form.select  :position,
+            -               (1..goal.todos.length).map {|i| [i, i] },
+            -               { selected: goal.todos.index(todo) + 1 },
+            -               class: "d-inline w-auto"
+            | 番目に移動 
+          .modal-footer.actions
+            button.btn.btn-secondary[type="button" data-dismiss="modal"]
+              | Close
+            = form.submit

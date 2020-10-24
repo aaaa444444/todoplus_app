@@ -1,0 +1,13 @@
+.goal-title-area.px-3
+  h1
+    | Task_plus
+  = link_to new_goal_path, class: "btn p-0 text-dark pr-5", remote: true do
+    i.fas.fa-plus.align-middle.pr-1
+    span.align-middle
+      | 目標　設定
+  = link_to new_tag_path, class: "btn p-0 text-dark", remote: true do
+    i.fas.fa-plus.align-middle.pr-1
+    span.align-middle
+      | タグ作成
+#goalsIndex.pt-3.p-1.text-nowrap.goal-index-area
+  = render @goals
